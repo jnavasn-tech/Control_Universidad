@@ -1,12 +1,12 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: .NET
+name: compilador
 
 on:
 
   pull_request:
-    branches: [ "Develop" ]
+    branches: [ "develop" ]
 
 jobs:
   build:
@@ -20,8 +20,8 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run:  dotnet restore test1.sln
+      run: dotnet restore test1.sln
     - name: Build
-      run:  dotnet build test1.sln --no-restore 
+      run: dotnet build test1.sln --no-restore
     - name: Test
-      run: dotnet test test1.sln --no-build --verbosity normal 
+      run: dotnet test test1.sln --no-build --verbosity normal
